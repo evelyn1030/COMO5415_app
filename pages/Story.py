@@ -67,7 +67,7 @@ else:
     st.warning("`assets/storyboard1.png` not found. Please place it in the assets folder.")
 
 st.markdown("""
-** Animated Short: A Fox's Endless Summer Journey** 
+Animated Short: A Fox's Endless Summer Journey
 
 This animated short tells a heartwarming story of loneliness and growth. On its endless journey, a lost little fox sits alone under an apple tree. 
 Its world changes when a glowing butterfly appears, guiding it into a vibrant hydrangea field. 

@@ -21,7 +21,9 @@ This is the **mature bloom** of the Endless Summer Garden — growing stronger d
 and radiating hope that the seasons of connection and music will continue.
 
 Image to be replaced
+
 Music to be added
+
 Video to be added
 """)
 
