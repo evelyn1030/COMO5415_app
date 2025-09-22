@@ -6,6 +6,11 @@ from PIL import Image
 st.set_page_config(page_title="Website Storyboard", page_icon="📝", layout="wide")
 st.title("Website Storyboard (Overall Web Design)")
 
+from Config import show_banner
+st.set_page_config(page_title="Poster", page_icon="🖼️", layout="wide")
+
+# 显示 Banner
+show_banner()
 # --- Part1 ---
 img_path = Path("assets/website_flowchart.png")
 if img_path.exists():
@@ -62,6 +67,17 @@ else:
     st.warning("`assets/storyboard1.png` not found. Please place it in the assets folder.")
 
 st.markdown("""
+** Animated Short: A Fox's Endless Summer Journey** 
+
+This animated short tells a heartwarming story of loneliness and growth. On its endless journey, a lost little fox sits alone under an apple tree. 
+Its world changes when a glowing butterfly appears, guiding it into a vibrant hydrangea field. 
+There, it encounters a beautiful hydrangea (representing Teens in Times), and its healing song helps the fox find a new sense of belonging.
+
+The friendship gives the fox courage and strength. Under a beautiful sunset, they promise to meet again at the top of a distant mountain. 
+The fox then begins a new journey, heading towards the dawn, in a story filled with hope and love. 
+The animation ends with the message, **"Our journey never ends. To be continued,"** symbolizing the eternal bond between the group and their fans.
+
+
 **Act 1 — Loneliness under the Apple Tree**  
 A quiet field. A heavy apple tree at center. A small fox sits with its back to us, the sky a muted gray.  
 *Emotion:* loneliness, confusion, longing.  
@@ -92,3 +108,19 @@ The fox sets out toward a distant mountaintop. The hydrangea remains, smiling ac
 *Emotion:* determination, shared growth, never giving up.  
 **Final card:** *Our journey never ends. See you at the top. To be continued.*
 """)
+
+
+import streamlit as st
+
+st.set_page_config(page_title="Overview", page_icon="🌸", layout="wide")
+st.title("A Garden in Time: Our Endless Summer")
+
+st.markdown("""
+Welcome to **Endless Summer**, a digital garden of memories.  
+Here, each bloom represents a milestone of growth, joy, and togetherness.  
+""")
+
+# Big button to enter the Timeline page
+st.markdown("### Ready to explore the garden?")
+if st.button("🌸 Enter the Garden →", type="primary", use_container_width=True):
+    st.switch_page("pages/Timeline.py")
