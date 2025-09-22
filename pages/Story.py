@@ -6,7 +6,7 @@ from PIL import Image
 st.set_page_config(page_title="Website Storyboard", page_icon="📝", layout="wide")
 st.title("Website Storyboard (Overall Web Design)")
 
-# --- 第一部分：网站流程图 ---
+# --- Part1 ---
 img_path = Path("assets/website_flowchart.png")
 if img_path.exists():
     image = Image.open(img_path)
@@ -46,30 +46,50 @@ st.markdown("""
 - Goal: highlight project’s final deliverables and unify style.
 """)
 
-# --- 第二部分：动画分镜 ---
-st.header("Animated Storyboard (Six Acts)")
+# --- Part 2: Animated Storyboard -------------------------------------------
+import streamlit as st
+from pathlib import Path
+from PIL import Image
 
-img_path2 = Path("assets/storyboard1.png")
-if img_path2.exists():
-    image2 = Image.open(img_path2)
-    st.image(image2, caption="Animated Storyboard", use_container_width=True)
+st.header("Animated Storyboard • The Fox’s Endless Summer Journey")
+
+img_path = Path("assets/storyboard1.png")
+if img_path.exists():
+    image = Image.open(img_path)
+    st.markdown("<div style='text-align:center;'>", unsafe_allow_html=True)
+    st.image(image, caption="Storyboard — The Fox’s Endless Summer Journey", use_container_width=True)
+    st.markdown("</div>", unsafe_allow_html=True)
 else:
     st.warning("`assets/storyboard1.png` not found. Please place it in the assets folder.")
 
 st.markdown("""
-This six-act animated storyboard tells a visual story of growth and hope, framing the relationship between the fans and the group as a never-ending journey.
+**Act 1 — Loneliness under the Apple Tree**  
+A quiet field. A heavy apple tree at center. A small fox sits with its back to us, the sky a muted gray.  
+*Emotion:* loneliness, confusion, longing.  
+*On-screen:* *Alone, under the apple tree.*
 
-**Confusion and Waiting (Act 1):** The story begins in a dark, uncertain space filled with mist and confusion, symbolizing the start of the journey and past challenges.  
+**Act 2 — A Butterfly’s Guidance**  
+A tiny glowing butterfly slips from the leaves and dances before the fox. The fox looks up; curiosity and hope flicker.  
+*Emotion:* curiosity, calling, first hope.  
+*On-screen:* *A tiny light appears.*
 
-**Hope and Rebirth (Act 2):** A single drop of rain breaks the darkness, bringing hope and new beginnings, marking a turning point.  
+**Act 3 — Encounter in the Summer Field**  
+The fox follows into a radiant hydrangea sea — **Endless Summer**. One bloom shines brighter than the rest: a symbol of *Teens in Times*.  
+*Emotion:* surprise, discovery, meeting.  
+*On-screen:* *Into the endless summer.*
 
-**Meeting and Growth (Act 3):** The rain nurtures a splendid field of hydrangeas, representing the meeting and shared growth of the group and their fans. Two special flowers are highlighted as the journey's protagonists.  
+**Act 4 — Song and Friendship**  
+The fox and the special hydrangea stand side-by-side. Petals sway like music; a gentle song fills the air.  
+*Emotion:* friendship, joy, healing.  
+*On-screen:* *A song that heals, a bond that grows.*
 
-**Warmth and Unity (Act 4):** The climax unfolds in the gentle light of a sunset, creating a warm and peaceful scene that symbolizes the beauty and unity found after overcoming obstacles.  
+**Act 5 — Sunset and a Promise**  
+They watch the sunset together; the sky glows in orange and violet. The fox lifts a small travel bundle, eyes bright with resolve.  
+*Emotion:* warmth, encouragement, new resolve.  
+*On-screen:* *Together, we watch the setting sun.*
 
-**A New Beginning (Act 5):** The sun sets, but a light of dawn appears in the distance, foreshadowing a new chapter filled with both challenges and hope.  
-
-**An Eternal Promise (Act 6):** The animation ends by focusing on the road ahead, concluding with the powerful message: *"Our journey never ends. To be continued."* This perfectly captures the core spirit of the "growing-up idol" genre and the infinite possibilities of their shared path.  
-
-This storyboard is not just a visual guide; it's an emotional narrative that translates abstract concepts into a tangible experience for the audience.
+**Act 6 — Toward the Peak**  
+The fox sets out toward a distant mountaintop. The hydrangea remains, smiling across the field. Dawn lights the ridge.  
+*Emotion:* determination, shared growth, never giving up.  
+**Final card:** *Our journey never ends. See you at the top. To be continued.*
 """)
