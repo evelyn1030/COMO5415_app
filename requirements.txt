@@ -1,0 +1,3 @@
+streamlit>=1.29
+pillow
+streamlit_image_coordinates
