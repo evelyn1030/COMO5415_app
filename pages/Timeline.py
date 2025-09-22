@@ -6,9 +6,6 @@ from streamlit_image_coordinates import streamlit_image_coordinates  # pip insta
 
 st.set_page_config(page_title="Garden Timeline • Seven Blooms", page_icon="🗓️", layout="wide")
 st.title("Garden Timeline • Seven Blooms")
-import streamlit as st
-from pathlib import Path
-
 
 st.markdown("""
 ### 🌸 Explore the Blooms
@@ -16,18 +13,20 @@ Click on the flowers to discover hidden surprises about each milestone!
 *(Currently, only the **first three blooms** are available. More coming soon... 🌱)*
 """)
 
+# ---- Load image safely ----
 candidates = [Path("assets/timeline.png"), Path("assets/main_poster.png")]
 IMG_PATH = next((p for p in candidates if p.exists()), None)
+
 if IMG_PATH is None:
-    st.error("Timeline image not found. Put one at assets/timeline.png (or assets/main_poster.png).")
+    st.error("❌ Timeline image not found. Please add one at `assets/timeline.png` or `assets/main_poster.png`.")
     st.stop()
 
-# 展示宽度（页面里显示的宽度，可随意改）
+# Display image
 DISPLAY_WIDTH = 1000
-
 img = Image.open(IMG_PATH)
 W, H = img.size
 
+# ---- Hotspot configuration ----
 hotspots = [
     {"label": "Bloom 1 • The First Bloom (Debut Day)",        "center_pct": (0.147, 0.156), "r": 70, "page": "pages/Milestone_Formation.py"},
     {"label": "Bloom 2 • The Fiery Bloom (Youth On Fire)",    "center_pct": (0.147, 0.443), "r": 70, "page": "pages/Milestone_OnFire.py"},
@@ -37,8 +36,8 @@ hotspots = [
     {"label": "Bloom 6 • ——",                                 "center_pct": (0.853, 0.443), "r": 70, "page": "pages/Milestone_6.py"},
     {"label": "Bloom 7 • ——",                                 "center_pct": (0.853, 0.794), "r": 70, "page": "pages/Milestone_7.py"},
 ]
-# =========================================================
 
+# ---- Interaction ----
 debug = st.toggle("Debug: show click coordinates", value=True,
                   help="Turn on to refine centers; paste new percentages back to `hotspots`.")
 
@@ -65,11 +64,12 @@ if coords:
             try:
                 st.switch_page(hs["page"])
             except Exception:
-                st.warning(f"Target page not found: `{hs['page']}`. Create it or change the path.")
+                st.warning(f"⚠️ Target page not found: `{hs['page']}`. Create it or change the path.")
             st.stop()
 
     st.warning("Clicked outside all blooms. Use Debug to capture % coords and update `hotspots`.")
 
+# ---- Sidebar navigation ----
 with st.sidebar:
     st.subheader("Garden Path")
     for hs in hotspots:
