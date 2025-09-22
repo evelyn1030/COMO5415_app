@@ -16,6 +16,10 @@ This milestone marks the official **formation and debut** of *Teens in Times*.
 
 ### 🌿 Garden Meaning
 This bloom is the very first seed in our *Garden in Time*, symbolizing a hopeful start.
+
+Image to be replaced
+Music to be added
+Video to be added
 """)
 
 # Debut

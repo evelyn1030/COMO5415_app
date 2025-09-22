@@ -17,7 +17,6 @@ else:
 st.subheader("Framework")
 st.markdown("""
 **Header**: project title *A Garden in Time: Endless Summer* + navigation menu (Garden Overview, Timeline, Blooms, Project Assets).  
-**Footer**: credits + course/project info.  
 **Sidebar (Streamlit)**: persistent navigation (logo + page list).
 """)
 

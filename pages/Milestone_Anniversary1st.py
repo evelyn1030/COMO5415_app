@@ -19,6 +19,10 @@ carefully preparing the stage and delivering their performance with dedication a
 ### 🌿 Garden Meaning
 This is the **mature bloom** of the Endless Summer Garden — growing stronger despite challenges,  
 and radiating hope that the seasons of connection and music will continue.
+
+Image to be replaced
+Music to be added
+Video to be added
 """)
 
 from pathlib import Path

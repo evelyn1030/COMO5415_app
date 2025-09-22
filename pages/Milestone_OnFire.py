@@ -21,6 +21,10 @@ showing that music and performance can carry both beauty and social meaning.
 
 ### 🌿 Garden Meaning
 In the garden, this is the **fiery bloom of summer** — radiant, brave, and unafraid to stand tall for others.
+
+Image to be replaced
+Music to be added
+Video to be added
 """)
 
 # On Fire
