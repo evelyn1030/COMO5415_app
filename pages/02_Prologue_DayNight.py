@@ -1,3 +1,11 @@
+import streamlit as st
+from pathlib import Path
+from PIL import Image
+
+st.set_page_config(page_title="Prologue • The Garden’s Day and Night",
+                   page_icon="🌗", layout="wide")
+
+
 # ---------- Tabs: Day / Night ----------
 day_tab, night_tab = st.tabs(["☀️ Day • Light & Beginnings", "🌙 Night • Reflection & Heritage"])
 
