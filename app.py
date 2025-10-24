@@ -13,7 +13,7 @@ with st.sidebar:
 
 pages = {
     "Garden": [
-        st.Page("pages/Story.py", title="Overview"),
+        st.Page("pages/Overview.py", title="Overview"),
         st.Page("pages/02_Prologue_DayNight.py", title="Prologue • The Garden’s Day and Night"),
         st.Page("pages/Timeline.py", title="Timeline • Seven Blooms"),
     ],
@@ -31,6 +31,7 @@ pages = {
     "Project Assets": [
         st.Page("pages/banner.py", title="Banner"),
         st.Page("pages/Poster.py", title="Poster"),
+        st.Page("pages/Storyboard.py", title="Storyboard"),
         st.Page("pages/2_Video.py", title="Animation"),
     ],
 }

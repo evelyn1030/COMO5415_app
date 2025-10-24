@@ -130,7 +130,6 @@ with night_tab:
 st.divider()
 cols = st.columns([1,1,1,4])
 with cols[0]:
-    st.page_link("app.py", label="← Overview")
+    st.page_link("pages/Storyboard.py", label="← Overview")
 with cols[1]:
-    st.page_link("pages/03_Milestone_Formation.py", label="Next: Bloom 1 →", disabled=False)
-
+    st.page_link("pages/Milestone_Formation.py", label="Next: Bloom 1 →")
