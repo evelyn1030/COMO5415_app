@@ -77,7 +77,7 @@ with day_tab:
     day_img = Path("assets/prologue/day_poster.jpg")
     if day_img.exists():
         img = Image.open(day_img)
-        st.image(img, caption="Day • Endless Summer Light", width="content", width=520)
+        st.image(img, caption="Day • Endless Summer Light", width=520)
     else:
         st.warning("Optional image: place a poster at `assets/prologue/day_poster.jpg`")
 
@@ -97,12 +97,6 @@ with night_tab:
         "night as a quiet soil where roots deepen."
     )
 
-    # --- Video placeholder (montage/essay film) ---
-    night_video = Path("assets/videos/chinese_men_1925_2025.mov")
-    if night_video.exists():
-        st.video(str(night_video))
-    else:
-        st.info("Add the NIGHT feature video at: `assets/videos/chinese_men_1925_2025.mov`")
 
     # --- Ambient audio (manual play) ---
     night_audio = Path("assets/audio/night_ambience.mp3")
@@ -115,7 +109,7 @@ with night_tab:
     night_img = Path("assets/prologue/night_poster.jpg")
     if night_img.exists():
         img = Image.open(night_img)
-        st.image(img, caption="Night • Heritage & Quiet Strength", width="content", width=520)
+        st.image(img, caption="Night • Heritage & Quiet Strength", width=520)
     else:
         st.warning("Optional image: place a poster at `assets/prologue/night_poster.jpg`")
 
