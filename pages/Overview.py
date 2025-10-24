@@ -53,44 +53,63 @@ def find_asset(*names: str) -> Path | None:
             return p
     return None
 
-# ---------- Twinkle lights (English-only) ----------
+# ---------- Twinkle lights (fixed background layer, guaranteed visible) ----------
 st.markdown("""
 <style>
+/* Ensure html and body fill full viewport */
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+/* Twinkle container fixed to viewport */
 .twinkle-layer {
   position: fixed;
-  inset: 0;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
   pointer-events: none;
   z-index: 0;
   overflow: hidden;
 }
+
+/* Small glowing dots floating slowly */
 .twinkle-dot {
   position: absolute;
   width: 6px; height: 6px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.1) 70%, transparent 100%);
+  background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.05) 70%, transparent 100%);
   filter: blur(0.6px);
   animation: twinkle 3.8s ease-in-out infinite;
   opacity: 0.75;
 }
+
 @keyframes twinkle {
   0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.65; }
-  50%      { transform: translate3d(0, -6px, 0) scale(1.08); opacity: 0.95; }
+  50%      { transform: translate3d(0, -6px, 0) scale(1.1); opacity: 0.95; }
 }
-.twinkle-dot:nth-child(1)  { left: 8%;   top: 16%; animation-delay: 0.1s;  transform: scale(0.9); }
-.twinkle-dot:nth-child(2)  { left: 18%;  top: 72%; animation-delay: 0.5s;  transform: scale(1.1); }
-.twinkle-dot:nth-child(3)  { left: 28%;  top: 38%; animation-delay: 1.1s; }
-.twinkle-dot:nth-child(4)  { left: 36%;  top: 14%; animation-delay: 0.3s;  transform: scale(0.8); }
-.twinkle-dot:nth-child(5)  { left: 44%;  top: 80%; animation-delay: 1.6s;  transform: scale(1.2); }
-.twinkle-dot:nth-child(6)  { left: 52%;  top: 26%; animation-delay: 0.8s; }
-.twinkle-dot:nth-child(7)  { left: 60%;  top: 60%; animation-delay: 1.9s;  transform: scale(0.85); }
-.twinkle-dot:nth-child(8)  { left: 68%;  top: 18%; animation-delay: 0.2s;  transform: scale(1.05); }
-.twinkle-dot:nth-child(9)  { left: 76%;  top: 70%; animation-delay: 2.2s; }
-.twinkle-dot:nth-child(10) { left: 84%;  top: 34%; animation-delay: 0.6s;  transform: scale(0.95); }
-.twinkle-dot:nth-child(11) { left: 12%;  top: 50%; animation-delay: 1.4s;  transform: scale(1.15); }
-.twinkle-dot:nth-child(12) { left: 90%;  top: 12%; animation-delay: 2.6s;  transform: scale(0.8); }
 
-main, section, .block-container { position: relative; z-index: 1; }
+/* Random positions */
+.twinkle-dot:nth-child(1)  { left: 8%;   top: 16%;  animation-delay: 0.1s;  transform: scale(0.9); }
+.twinkle-dot:nth-child(2)  { left: 18%;  top: 72%;  animation-delay: 0.5s;  transform: scale(1.1); }
+.twinkle-dot:nth-child(3)  { left: 28%;  top: 38%;  animation-delay: 1.1s; }
+.twinkle-dot:nth-child(4)  { left: 36%;  top: 14%;  animation-delay: 0.3s;  transform: scale(0.8); }
+.twinkle-dot:nth-child(5)  { left: 44%;  top: 80%;  animation-delay: 1.6s;  transform: scale(1.2); }
+.twinkle-dot:nth-child(6)  { left: 52%;  top: 26%;  animation-delay: 0.8s; }
+.twinkle-dot:nth-child(7)  { left: 60%;  top: 60%;  animation-delay: 1.9s;  transform: scale(0.85); }
+.twinkle-dot:nth-child(8)  { left: 68%;  top: 18%;  animation-delay: 0.2s;  transform: scale(1.05); }
+.twinkle-dot:nth-child(9)  { left: 76%;  top: 70%;  animation-delay: 2.2s; }
+.twinkle-dot:nth-child(10) { left: 84%;  top: 34%;  animation-delay: 0.6s;  transform: scale(0.95); }
+.twinkle-dot:nth-child(11) { left: 12%;  top: 50%;  animation-delay: 1.4s;  transform: scale(1.15); }
+.twinkle-dot:nth-child(12) { left: 90%;  top: 12%;  animation-delay: 2.6s;  transform: scale(0.8); }
+
+/* Bring content above the twinkle layer */
+main, section, .block-container {
+  position: relative;
+  z-index: 1;
+}
 </style>
+
+<!-- Twinkle layer -->
 <div class="twinkle-layer">
   <span class="twinkle-dot"></span><span class="twinkle-dot"></span><span class="twinkle-dot"></span>
   <span class="twinkle-dot"></span><span class="twinkle-dot"></span><span class="twinkle-dot"></span>
@@ -98,6 +117,7 @@ main, section, .block-container { position: relative; z-index: 1; }
   <span class="twinkle-dot"></span><span class="twinkle-dot"></span><span class="twinkle-dot"></span>
 </div>
 """, unsafe_allow_html=True)
+
 
 # ---------- Banner (once) ----------
 banner_path = find_asset("assets/banner.webp", "assets/banner.png", "assets/banner.jpg")
