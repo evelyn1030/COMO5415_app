@@ -11,6 +11,8 @@ st.markdown("""
 body {
     background: linear-gradient(180deg, #fffafc 0%, #f3f9ff 100%);
 }
+.main .block-container { position: relative; z-index: 1; } /* content above glow layer */
+
 .poetic-block {
     font-size: 1.1rem;
     line-height: 1.8;
@@ -24,6 +26,7 @@ body {
     animation: fadein 1.6s ease-in;
 }
 @keyframes fadein { from {opacity:0;} to {opacity:1;} }
+
 h1 {
     font-family: 'Cinzel', serif;
     text-align: center;
@@ -39,7 +42,66 @@ h1 {
     text-align: center;
     margin-top: 1.5em;
 }
+
+/* -------- Ambient subtle glow dots (background) -------- */
+.ambient-glow {
+  position: fixed; inset: 0; z-index: 0;
+  pointer-events: none; overflow: hidden;
+}
+.glow-dot {
+  position: absolute;
+  width: 18px; height: 18px; border-radius: 50%;
+  opacity: 0.65;
+  background: radial-gradient(circle,
+              rgba(255, 183, 197, 0.85) 0%,
+              rgba(255, 183, 197, 0.45) 40%,
+              rgba(255, 183, 197, 0.0) 70%);
+  filter: blur(0.2px);
+  animation: float 14s ease-in-out infinite, breathe 5.6s ease-in-out infinite;
+}
+.glow-dot.c2 { background: radial-gradient(circle,
+              rgba(173, 216, 230, 0.85) 0%,
+              rgba(173, 216, 230, 0.45) 40%,
+              rgba(173, 216, 230, 0.0) 70%); }
+.glow-dot.c3 { background: radial-gradient(circle,
+              rgba(255, 201, 150, 0.85) 0%,
+              rgba(255, 201, 150, 0.45) 40%,
+              rgba(255, 201, 150, 0.0) 70%); }
+
+@keyframes float {
+  0%   { transform: translate3d(0,0,0) scale(1); }
+  50%  { transform: translate3d(var(--dx, 12px), var(--dy, -16px), 0) scale(1.08); }
+  100% { transform: translate3d(0,0,0) scale(1); }
+}
+@keyframes breathe {
+  0%,100% { opacity: 0.60; }
+  50%     { opacity: 0.85; }
+}
+@media (max-width: 820px) {
+  .glow-dot { width: 14px; height: 14px; }
+}
 </style>
+""", unsafe_allow_html=True)
+
+# ---------- Ambient Glow Layer (does not block clicks) ----------
+st.markdown("""
+<div class="ambient-glow">
+  <div class="glow-dot"   style="left:8%;   top:14%;  --dx:10px;  --dy:-12px;"></div>
+  <div class="glow-dot c2" style="left:20%;  top:28%;  --dx:-8px;  --dy:-18px;"></div>
+  <div class="glow-dot c3" style="left:32%;  top:12%;  --dx:12px;  --dy:-10px;"></div>
+
+  <div class="glow-dot"   style="left:72%;  top:18%;  --dx:-10px; --dy:-14px;"></div>
+  <div class="glow-dot c2" style="left:84%;  top:30%;  --dx:9px;   --dy:-12px;"></div>
+  <div class="glow-dot c3" style="left:90%;  top:12%;  --dx:-12px; --dy:-8px;"></div>
+
+  <div class="glow-dot"   style="left:14%;  top:68%;  --dx:8px;   --dy:-10px;"></div>
+  <div class="glow-dot c2" style="left:26%;  top:82%;  --dx:-6px;  --dy:-14px;"></div>
+  <div class="glow-dot c3" style="left:40%;  top:74%;  --dx:12px;  --dy:-12px;"></div>
+
+  <div class="glow-dot"   style="left:60%;  top:76%;  --dx:-10px; --dy:-16px;"></div>
+  <div class="glow-dot c2" style="left:74%;  top:84%;  --dx:10px;  --dy:-10px;"></div>
+  <div class="glow-dot c3" style="left:88%;  top:68%;  --dx:-8px;  --dy:-12px;"></div>
+</div>
 """, unsafe_allow_html=True)
 
 # ---------- Banner ----------
