@@ -4,15 +4,23 @@ from pathlib import Path
 
 st.set_page_config(page_title="Overview • A Garden in Time", page_icon="🌸", layout="wide")
 
-# ---------- Base CSS (background + card styles) ----------
+# ---------- Animated glowing background + base styles ----------
 st.markdown("""
 <style>
 body {
-    background:
-        radial-gradient(circle at 30% 20%, rgba(255, 223, 236, 0.55) 0%, transparent 40%),
-        radial-gradient(circle at 80% 70%, rgba(210, 230, 255, 0.45) 0%, transparent 50%),
-        radial-gradient(circle at 50% 90%, rgba(255, 240, 220, 0.45) 0%, transparent 55%),
-        linear-gradient(180deg, #fffafc 0%, #f3f9ff 100%);
+  background:
+    radial-gradient(circle at 25% 25%, rgba(255,225,240,0.65) 0%, transparent 40%),
+    radial-gradient(circle at 75% 75%, rgba(220,235,255,0.55) 0%, transparent 45%),
+    radial-gradient(circle at 50% 100%, rgba(255,240,220,0.55) 0%, transparent 60%),
+    linear-gradient(180deg, #fffafc 0%, #f3f9ff 100%);
+  background-size: 200% 200%;
+  animation: glowmove 18s ease-in-out infinite alternate;
+}
+
+/* soft motion of light spots */
+@keyframes glowmove {
+  0%   { background-position: 0% 0%, 100% 100%, 50% 50%, 0% 0%; }
+  100% { background-position: 100% 100%, 0% 0%, 50% 50%, 0% 100%; }
 }
 
 /* Content card */
@@ -24,6 +32,7 @@ body {
     padding: 2.5rem;
     border-radius: 18px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    backdrop-filter: blur(8px);
     margin-top: 1rem;
     margin-bottom: 2rem;
     animation: fadein 1.0s ease-in;
@@ -53,73 +62,7 @@ def find_asset(*names: str) -> Path | None:
             return p
     return None
 
-# ---------- Twinkle lights (fixed background layer, guaranteed visible) ----------
-st.markdown("""
-<style>
-/* Ensure html and body fill full viewport */
-html, body {
-  height: 100%;
-  overflow-x: hidden;
-}
-
-/* Twinkle container fixed to viewport */
-.twinkle-layer {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100vw; height: 100vh;
-  pointer-events: none;
-  z-index: 0;
-  overflow: hidden;
-}
-
-/* Small glowing dots floating slowly */
-.twinkle-dot {
-  position: absolute;
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.05) 70%, transparent 100%);
-  filter: blur(0.6px);
-  animation: twinkle 3.8s ease-in-out infinite;
-  opacity: 0.75;
-}
-
-@keyframes twinkle {
-  0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.65; }
-  50%      { transform: translate3d(0, -6px, 0) scale(1.1); opacity: 0.95; }
-}
-
-/* Random positions */
-.twinkle-dot:nth-child(1)  { left: 8%;   top: 16%;  animation-delay: 0.1s;  transform: scale(0.9); }
-.twinkle-dot:nth-child(2)  { left: 18%;  top: 72%;  animation-delay: 0.5s;  transform: scale(1.1); }
-.twinkle-dot:nth-child(3)  { left: 28%;  top: 38%;  animation-delay: 1.1s; }
-.twinkle-dot:nth-child(4)  { left: 36%;  top: 14%;  animation-delay: 0.3s;  transform: scale(0.8); }
-.twinkle-dot:nth-child(5)  { left: 44%;  top: 80%;  animation-delay: 1.6s;  transform: scale(1.2); }
-.twinkle-dot:nth-child(6)  { left: 52%;  top: 26%;  animation-delay: 0.8s; }
-.twinkle-dot:nth-child(7)  { left: 60%;  top: 60%;  animation-delay: 1.9s;  transform: scale(0.85); }
-.twinkle-dot:nth-child(8)  { left: 68%;  top: 18%;  animation-delay: 0.2s;  transform: scale(1.05); }
-.twinkle-dot:nth-child(9)  { left: 76%;  top: 70%;  animation-delay: 2.2s; }
-.twinkle-dot:nth-child(10) { left: 84%;  top: 34%;  animation-delay: 0.6s;  transform: scale(0.95); }
-.twinkle-dot:nth-child(11) { left: 12%;  top: 50%;  animation-delay: 1.4s;  transform: scale(1.15); }
-.twinkle-dot:nth-child(12) { left: 90%;  top: 12%;  animation-delay: 2.6s;  transform: scale(0.8); }
-
-/* Bring content above the twinkle layer */
-main, section, .block-container {
-  position: relative;
-  z-index: 1;
-}
-</style>
-
-<!-- Twinkle layer -->
-<div class="twinkle-layer">
-  <span class="twinkle-dot"></span><span class="twinkle-dot"></span><span class="twinkle-dot"></span>
-  <span class="twinkle-dot"></span><span class="twinkle-dot"></span><span class="twinkle-dot"></span>
-  <span class="twinkle-dot"></span><span class="twinkle-dot"></span><span class="twinkle-dot"></span>
-  <span class="twinkle-dot"></span><span class="twinkle-dot"></span><span class="twinkle-dot"></span>
-</div>
-""", unsafe_allow_html=True)
-
-
-# ---------- Banner (once) ----------
+# ---------- Banner ----------
 banner_path = find_asset("assets/banner.webp", "assets/banner.png", "assets/banner.jpg")
 if banner_path:
     st.image(str(banner_path), caption="A Garden in Time • Endless Summer", use_container_width=True)
@@ -135,7 +78,7 @@ col_left, col_right = st.columns([7, 5], gap="large")
 
 with col_left:
     st.markdown("""
-<div class="poetic-block" style="position: relative; z-index: 1;">
+<div class="poetic-block">
 In this digital garden, every bloom holds a memory.<br/>
 Some are tender and new, like the first light of spring;<br/>
 some carry the warmth of summer, glowing with laughter and song.<br/><br/>
