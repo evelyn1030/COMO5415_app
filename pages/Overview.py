@@ -1,7 +1,6 @@
 # pages/Overview.py
 import streamlit as st
 from pathlib import Path
-from PIL import Image
 
 st.set_page_config(page_title="Overview • A Garden in Time", page_icon="🌸", layout="wide")
 
@@ -16,7 +15,7 @@ body {
         linear-gradient(180deg, #fffafc 0%, #f3f9ff 100%);
 }
 
-/* Page structure */
+/* Content card */
 .poetic-block {
     font-size: 1.1rem;
     line-height: 1.8;
@@ -27,7 +26,7 @@ body {
     box-shadow: 0 8px 25px rgba(0,0,0,0.08);
     margin-top: 1rem;
     margin-bottom: 2rem;
-    animation: fadein 1.6s ease-in;
+    animation: fadein 1.0s ease-in;
 }
 @keyframes fadein { from {opacity:0;} to {opacity:1;} }
 
@@ -42,21 +41,32 @@ h1 {
     color: #777;
     margin-bottom: 2em;
 }
-.enter-btn {
-    text-align: center;
-    margin-top: 1.5em;
-}
+.enter-btn { text-align: center; margin-top: 1.5em; }
 </style>
 """, unsafe_allow_html=True)
 
-# ---------- Banner ----------
-banner_path = Path("assets/banner.png")
+# ---------- Banner (lazy load + max width limit) ----------
+# Prefer webp if available (smaller), otherwise png
+banner_path = Path("assets/banner.webp") if Path("assets/banner.webp").exists() else Path("assets/banner.png")
+
 if banner_path.exists():
-    st.markdown("<div style='text-align:center;'>", unsafe_allow_html=True)
-    st.image(str(banner_path), caption="A Garden in Time • Endless Summer", use_container_width=True)
-    st.markdown("</div>", unsafe_allow_html=True)
+    st.markdown(
+        f"""
+        <div style="text-align:center; margin-bottom: 8px;">
+            <img src="{banner_path.as_posix()}"
+                 alt="A Garden in Time • Endless Summer Banner"
+                 loading="lazy"
+                 style="max-width:1200px; width:90%; height:auto; border-radius:10px;
+                        box-shadow:0 6px 18px rgba(0,0,0,0.10);" />
+            <div style="color:#999; font-size:12px; margin-top:6px;">
+                A Garden in Time • Endless Summer
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 else:
-    st.warning("Banner image not found. Place it at assets/banner.png")
+    st.warning("Banner image not found. Place one at assets/banner.webp or assets/banner.png")
 
 # ---------- Title ----------
 st.title("A Garden in Time: Our Endless Summer")
@@ -65,7 +75,6 @@ st.markdown("<p class='subtitle'>A digital garden of memory, growth, and light.<
 # ---------- Poetic Narrative ----------
 st.markdown("""
 <div class="poetic-block">
-
 In this digital garden, every bloom holds a memory.  
 Some are tender and new, like the first light of spring;  
 some carry the warmth of summer, glowing with laughter and song.  
@@ -86,7 +95,6 @@ Here, light and shadow coexist.
 Growth is not always gentle, yet it is always beautiful.  
 Step inside, and you may find pieces of your own story  
 rooted in the soil of time, still alive, still blooming.
-
 </div>
 """, unsafe_allow_html=True)
 
