@@ -45,10 +45,10 @@ h1 {
 </style>
 """, unsafe_allow_html=True)
 
-# ---------- Banner (robust via st.image) ----------
-def find_asset(*candidates: str) -> Path | None:
-    for name in candidates:
-        p = Path(name)
+# ---------- Banner ----------
+def find_asset(*names: str):
+    for n in names:
+        p = Path(n)
         if p.exists():
             return p
     return None
@@ -56,11 +56,10 @@ def find_asset(*candidates: str) -> Path | None:
 banner_path = find_asset("assets/banner.webp", "assets/banner.png", "assets/banner.jpg")
 
 if banner_path:
-    # 用 st.image 让 Streamlit 处理静态路径，避免 HTML 相对路径问题
     st.image(
         str(banner_path),
         caption="A Garden in Time • Endless Summer",
-        use_column_width=True,
+        use_container_width=True,
     )
 else:
     st.warning("Banner image not found. Place one at `assets/banner.webp|png|jpg`.")
@@ -97,13 +96,19 @@ rooted in the soil of time, still alive, still blooming.
 """, unsafe_allow_html=True)
 
 # ---------- Poster (between intro and button) ----------
-poster_path = find_asset("assets/main_poster.webp", "assets/main_poster.png", "assets/poster.png", "assets/poster.jpg")
+poster_path = find_asset(
+    "assets/main_poster.webp",
+    "assets/main_poster.png",
+    "assets/poster.png",
+    "assets/poster.jpg"
+)
 
 if poster_path:
     st.markdown("### Poster")
-    st.image(str(poster_path), use_column_width=True)
+    st.image(str(poster_path), use_container_width=True)
 else:
     st.info("Poster not found. Add one at `assets/main_poster.webp|png|jpg`.")
+
 
 # ---------- Enter the Garden Button ----------
 st.markdown("<div class='enter-btn'>", unsafe_allow_html=True)
