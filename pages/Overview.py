@@ -50,10 +50,17 @@ h1 {
 banner_path = Path("assets/banner.webp") if Path("assets/banner.webp").exists() else Path("assets/banner.png")
 
 if banner_path.exists():
+    # ✅ use relative URL instead of full system path
+    banner_rel = banner_path.as_posix().replace("\\", "/")
+    if banner_rel.startswith("pages/"):
+        banner_rel = banner_rel.split("pages/", 1)[-1]
+    elif banner_rel.startswith("./"):
+        banner_rel = banner_rel[2:]
+
     st.markdown(
         f"""
         <div style="text-align:center; margin-bottom: 8px;">
-            <img src="{banner_path.as_posix()}"
+            <img src="{banner_rel}"
                  alt="A Garden in Time • Endless Summer Banner"
                  loading="lazy"
                  style="max-width:1200px; width:90%; height:auto; border-radius:10px;

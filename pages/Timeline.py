@@ -57,25 +57,28 @@ hotspots = [
     {"label": "Bloom 7 • The Golden Bloom (5th Anniversary in Chongqing)", "center_pct": (0.89, 0.69), "r": 55, "page": p_b7},
 ]
 
-# ---------- Interaction ----------
+# ---------- Interaction (do hit-test in DISPLAY space) ----------
 coords = streamlit_image_coordinates(str(IMG_PATH), width=DISPLAY_WIDTH)
 
-def pct_to_px(cx_pct, cy_pct): return cx_pct * W, cy_pct * H
-def hit_circle(px, py, cx, cy, r): return (px - cx) ** 2 + (py - cy) ** 2 <= r ** 2
+def pct_to_px_display(cx_pct, cy_pct):
+    return cx_pct * DISPLAY_WIDTH, cy_pct * H_display
 
-scale = W / DISPLAY_WIDTH
+def hit_circle_display(px, py, cx, cy, r):
+    return (px - cx) ** 2 + (py - cy) ** 2 <= r ** 2
 
 if coords:
-    ox, oy = coords["x"] * scale, coords["y"] * scale
+    ox, oy = float(coords["x"]), float(coords["y"])  # click in display-space
     for hs in hotspots:
-        cx, cy = pct_to_px(*hs["center_pct"])
-        if hit_circle(ox, oy, cx, cy, hs["r"]):
+        cx, cy = pct_to_px_display(*hs["center_pct"])  # center in display-space
+        r = hs["r"]  # radius also in display-space pixels
+        if hit_circle_display(ox, oy, cx, cy, r):
             st.toast(f"Opening: {hs['label']}")
             try:
                 st.switch_page(hs["page"])
             except Exception:
                 st.warning(f"⚠️ Target page not found: `{hs['page']}`.")
             st.stop()
+
 
 # ---------- Buttons (reduced layout) ----------
 st.divider()
