@@ -57,75 +57,52 @@ day_tab, night_tab = st.tabs(["☀️ Day • Light & Beginnings", "🌙 Night �
 
 # ---------------- DAY ----------------
 with day_tab:
-    st.subheader("A Fox’s Endless Summer Journey")
-    st.write(
-        "Symbolizes light, hope, and new beginnings. "
-        "A gentle, sun-washed moment in our Endless Summer Garden."
-    )
+    colL, colR = st.columns([7, 5], gap="large")
 
-    # --- Feature video (animation) ---
-    day_video = Path("assets/videos/fox_journey.mp4")
-    if day_video.exists():
-        st.video(load_bytes(day_video), format="video/mp4")
-    else:
-        st.info("Add the DAY animation video at: assets/videos/fox_journey.mp4")
+    with colL:
+        day_video = Path("assets/videos/fox_journey.mp4")
+        if day_video.exists():
+            st.video(load_bytes(day_video), format="video/mp4")
+        else:
+            st.info("Add the DAY video at: assets/videos/fox_journey.mp4")
 
-    # --- Ambient audio (manual play for browser compatibility) ---
-    day_audio = Path("assets/audio/day_ambience.mp3")
-    if day_audio.exists():
-        st.audio(load_bytes(day_audio), format="audio/mp3")
-    else:
-        st.info("Add the DAY ambience audio at: assets/audio/day_ambience.mp3")
-
-    # --- Still image(s) ---
-    day_img = Path("assets/prologue/day_poster.jpg")
-    if day_img.exists():
-        with Image.open(day_img) as im:
-            st.image(im.copy(), caption="Day • Endless Summer Light", width=520)
-    else:
-        st.warning("Optional image: place a poster at assets/prologue/day_poster.jpg")
-
-    # Notes block for attribution
-    with st.expander("Credits / Notes (Day)"):
+    with colR:
+        st.subheader("A Fox’s Endless Summer Journey")
         st.markdown("""
-- Animation: *A Fox’s Endless Summer Journey* (add your credit or self-made note)  
-- Ambience: (source + license, e.g., Freesound attribution)  
-- Any supporting visuals: list sources here
+**What you’ll see**  
+A sun-washed moment where a small fox takes its first brave steps in the hydrangea garden.
+
+**Why it matters**  
+Day represents *beginnings* — light, hope, and the courage to start.
+
+**Design notes**  
+• Warm tone, airy pacing  
+• Soft grain + gentle motion  
+• Focus on *growth* and *connection*
         """)
 
 # ---------------- NIGHT ----------------
 with night_tab:
-    st.subheader("Chinese Men: A Century in Style (1925–2025)")
-    st.write(
-        "Represents reflection, heritage, and inner strength — "
-        "night as a quiet soil where roots deepen."
-    )
+    colL, colR = st.columns([7, 5], gap="large")
 
-    # --- Feature video (video essay / montage) ---
-    night_video = Path("assets/prologue/chinese_men_1925_2025.mp4")  # ← 你刚转好的 mp4
-    if night_video.exists():
-        st.video(load_bytes(night_video), format="video/mp4")
-    else:
-        st.info("Add the NIGHT feature video at: assets/prologue/chinese_men_1925_2025.mp4")
+    with colL:
+        night_video = Path("assets/prologue/chinese_men_1925_2025.mp4")
+        if night_video.exists():
+            st.video(load_bytes(night_video), format="video/mp4")
+        else:
+            st.info("Add the NIGHT video at: assets/prologue/chinese_men_1925_2025.mp4")
 
-    # --- Ambient audio (manual play) ---
-    night_audio = Path("assets/audio/night_ambience.mp3")
-    if night_audio.exists():
-        st.audio(load_bytes(night_audio), format="audio/mp3")
-    else:
-        st.info("Add the NIGHT ambience audio at: assets/audio/night_ambience.mp3")
-
-    # --- Still image(s) ---
-    night_img = Path("assets/prologue/night_poster.jpg")
-    if night_img.exists():
-        with Image.open(night_img) as im:
-            st.image(im.copy(), caption="Night • Heritage & Quiet Strength", width=520)
-    else:
-        st.warning("Optional image: place a poster at assets/prologue/night_poster.jpg")
-
-    with st.expander("Credits / Notes (Night)"):
+    with colR:
+        st.subheader("Chinese Men: A Century in Style (1925–2025)")
         st.markdown("""
-- Video essay / montage: add author + year + license  
-- Ambience: (source + license)  
-- Archival or fashion references: cite image owners / museums if used
+**What you’ll see**  
+A calm, archival-style montage tracing silhouettes, fabric, and posture across a century.
+
+**Why it matters**  
+Night symbolizes *reflection* — heritage, quiet strength, and roots that deepen.
+
+**Design notes**  
+• Grounded tone, steady rhythm  
+• Subtle texture overlays  
+• Emphasis on *continuity* and *dignity*
         """)
