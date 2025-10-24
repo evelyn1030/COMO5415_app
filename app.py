@@ -9,7 +9,7 @@ st.set_page_config(
 with st.sidebar:
     st.image("assets/Logo.png",
              caption="Endless Summer • Project Logo",
-             use_container_width=True)
+             width="stretch")
 
 pages = {
     "Garden": [

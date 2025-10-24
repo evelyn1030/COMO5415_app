@@ -16,6 +16,6 @@ Each bloom will appear one by one, representing milestones in the journey of Tee
 
 img_path = Path("assets/animation_placeholder.png")
 if img_path.exists():
-    st.image(str(img_path), caption="Coming Soon — The Garden in Motion", use_container_width=True)
+    st.image(str(img_path), caption="Coming Soon — The Garden in Motion", width="stretch")
 else:
     st.info("Animation is still in progress. Please check back later!")

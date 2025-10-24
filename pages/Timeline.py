@@ -89,7 +89,7 @@ buttons = [col1, col2, col3] * 3  # repeat columns
 
 for i, hs in enumerate(hotspots):
     with buttons[i]:
-        if st.button(hs["label"], use_container_width=True):
+        if st.button(hs["label"], width="stretch"):
             try:
                 st.switch_page(hs["page"])
             except Exception:

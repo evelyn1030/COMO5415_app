@@ -17,7 +17,7 @@ st.header("Website Storyboard (Overall Web Design)")
 img_path = Path("assets/website_flowchart.png")
 if img_path.exists():
     image = Image.open(img_path)
-    st.image(image, caption="Website Flowchart", use_container_width=True)
+    st.image(image, caption="Website Flowchart", width="stretch")
 else:
     st.warning("`assets/website_flowchart.png` not found. Please place it in the assets folder.")
 
@@ -49,7 +49,7 @@ story_img = Path("assets/storyboard1.png")
 if story_img.exists():
     image = Image.open(story_img)
     st.markdown("<div style='text-align:center;'>", unsafe_allow_html=True)
-    st.image(image, caption="Storyboard — The Fox’s Endless Summer Journey", use_container_width=True)
+    st.image(image, caption="Storyboard — The Fox’s Endless Summer Journey", width="stretch")
     st.markdown("</div>", unsafe_allow_html=True)
 else:
     st.warning("`assets/storyboard1.png` not found. Please place it in the assets folder.")
