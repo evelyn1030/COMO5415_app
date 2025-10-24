@@ -45,35 +45,26 @@ h1 {
 </style>
 """, unsafe_allow_html=True)
 
-# ---------- Banner (lazy load + max width limit) ----------
-# Prefer webp if available (smaller), otherwise png
-banner_path = Path("assets/banner.webp") if Path("assets/banner.webp").exists() else Path("assets/banner.png")
+# ---------- Banner (robust via st.image) ----------
+def find_asset(*candidates: str) -> Path | None:
+    for name in candidates:
+        p = Path(name)
+        if p.exists():
+            return p
+    return None
 
-if banner_path.exists():
-    # ✅ use relative URL instead of full system path
-    banner_rel = banner_path.as_posix().replace("\\", "/")
-    if banner_rel.startswith("pages/"):
-        banner_rel = banner_rel.split("pages/", 1)[-1]
-    elif banner_rel.startswith("./"):
-        banner_rel = banner_rel[2:]
+banner_path = find_asset("assets/banner.webp", "assets/banner.png", "assets/banner.jpg")
 
-    st.markdown(
-        f"""
-        <div style="text-align:center; margin-bottom: 8px;">
-            <img src="{banner_rel}"
-                 alt="A Garden in Time • Endless Summer Banner"
-                 loading="lazy"
-                 style="max-width:1200px; width:90%; height:auto; border-radius:10px;
-                        box-shadow:0 6px 18px rgba(0,0,0,0.10);" />
-            <div style="color:#999; font-size:12px; margin-top:6px;">
-                A Garden in Time • Endless Summer
-            </div>
-        </div>
-        """,
-        unsafe_allow_html=True
+if banner_path:
+    # 用 st.image 让 Streamlit 处理静态路径，避免 HTML 相对路径问题
+    st.image(
+        str(banner_path),
+        caption="A Garden in Time • Endless Summer",
+        use_column_width=True,
     )
 else:
-    st.warning("Banner image not found. Place one at assets/banner.webp or assets/banner.png")
+    st.warning("Banner image not found. Place one at `assets/banner.webp|png|jpg`.")
+
 
 # ---------- Title ----------
 st.title("A Garden in Time: Our Endless Summer")
@@ -104,6 +95,15 @@ Step inside, and you may find pieces of your own story
 rooted in the soil of time, still alive, still blooming.
 </div>
 """, unsafe_allow_html=True)
+
+# ---------- Poster (between intro and button) ----------
+poster_path = find_asset("assets/main_poster.webp", "assets/main_poster.png", "assets/poster.png", "assets/poster.jpg")
+
+if poster_path:
+    st.markdown("### Poster")
+    st.image(str(poster_path), use_column_width=True)
+else:
+    st.info("Poster not found. Add one at `assets/main_poster.webp|png|jpg`.")
 
 # ---------- Enter the Garden Button ----------
 st.markdown("<div class='enter-btn'>", unsafe_allow_html=True)
