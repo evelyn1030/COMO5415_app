@@ -1,2 +1,2 @@
-assets/prologue/chinese_men_1925_2025.mov filter=lfs diff=lfs merge=lfs -text
 *.mov filter=lfs diff=lfs merge=lfs -text
+assets/prologue/chinese_men_1925_2025.mov filter=lfs diff=lfs merge=lfs -text
