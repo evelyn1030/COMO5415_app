@@ -62,14 +62,15 @@ p_b7 = page_path(
 # ---------- Hotspot configuration ----------
 # center_pct = (x_pct, y_pct) in ORIGINAL image coordinates (0~1)
 hotspots = [
-    {"key": "b1", "label": "Bloom 1 • The First Bloom (Debut Day)",        "center_pct": (0.147, 0.156), "r": 70, "page": p_b1},
-    {"key": "b2", "label": "Bloom 2 • The Fiery Bloom (Youth On Fire)",    "center_pct": (0.147, 0.443), "r": 70, "page": p_b2},
-    {"key": "b3", "label": "Bloom 3 • The Mature Bloom (1st Anniversary)", "center_pct": (0.147, 0.794), "r": 70, "page": p_b3},
-    {"key": "b4", "label": "Bloom 4 • The Radiant Bloom (Spring Festival Gala)", "center_pct": (0.500, 0.156), "r": 70, "page": p_b4},
-    {"key": "b5", "label": "Bloom 5 • The Transforming Bloom (The Age of Dancing Elephants)", "center_pct": (0.853, 0.156), "r": 70, "page": p_b5},
-    {"key": "b6", "label": "Bloom 6 • The Boundless Bloom (Haikou Concert)", "center_pct": (0.853, 0.443), "r": 70, "page": p_b6},
-    {"key": "b7", "label": "Bloom 7 • The Golden Bloom (5th Anniversary in Chongqing)", "center_pct": (0.853, 0.794), "r": 70, "page": p_b7},
+    {"key": "b1", "label": "Bloom 1 • The First Bloom (Debut Day)",        "center_pct": (0.11, 0.15), "r": 65, "page": p_b1},
+    {"key": "b2", "label": "Bloom 2 • The Fiery Bloom (Youth On Fire)",    "center_pct": (0.11, 0.40), "r": 65, "page": p_b2},
+    {"key": "b3", "label": "Bloom 3 • The Mature Bloom (1st Anniversary)", "center_pct": (0.11, 0.69), "r": 65, "page": p_b3},
+    {"key": "b4", "label": "Bloom 4 • The Radiant Bloom (Spring Festival Gala)", "center_pct": (0.50, 0.13), "r": 70, "page": p_b4},
+    {"key": "b5", "label": "Bloom 5 • The Transforming Bloom (The Age of Dancing Elephants)", "center_pct": (0.89, 0.15), "r": 65, "page": p_b5},
+    {"key": "b6", "label": "Bloom 6 • The Boundless Bloom (Haikou Concert)", "center_pct": (0.89, 0.40), "r": 65, "page": p_b6},
+    {"key": "b7", "label": "Bloom 7 • The Golden Bloom (5th Anniversary in Chongqing)", "center_pct": (0.89, 0.69), "r": 65, "page": p_b7},
 ]
+
 
 # ---------- Interaction image ----------
 debug = st.toggle("Debug: show click coordinates & export hotspots", value=False,
