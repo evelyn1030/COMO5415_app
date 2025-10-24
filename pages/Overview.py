@@ -4,7 +4,7 @@ from pathlib import Path
 
 st.set_page_config(page_title="Overview • A Garden in Time", page_icon="🌸", layout="wide")
 
-# ---------- Soft static background (no animation, super lightweight) ----------
+# ---------- Base CSS (background + card styles) ----------
 st.markdown("""
 <style>
 body {
@@ -45,9 +45,7 @@ h1 {
 </style>
 """, unsafe_allow_html=True)
 
-from pathlib import Path
-import streamlit as st
-
+# ---------- Helper ----------
 def find_asset(*names: str) -> Path | None:
     for n in names:
         p = Path(n)
@@ -55,7 +53,7 @@ def find_asset(*names: str) -> Path | None:
             return p
     return None
 
-# ---------- Soft twinkle lights (CSS-only, lightweight, no Chinese comments) ----------
+# ---------- Twinkle lights (English-only) ----------
 st.markdown("""
 <style>
 .twinkle-layer {
@@ -65,25 +63,19 @@ st.markdown("""
   z-index: 0;
   overflow: hidden;
 }
-
-/* Small glowing dots floating slowly */
 .twinkle-dot {
   position: absolute;
-  width: 6px;
-  height: 6px;
+  width: 6px; height: 6px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.1) 70%, transparent 100%);
   filter: blur(0.6px);
   animation: twinkle 3.8s ease-in-out infinite;
   opacity: 0.75;
 }
-
 @keyframes twinkle {
   0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.65; }
   50%      { transform: translate3d(0, -6px, 0) scale(1.08); opacity: 0.95; }
 }
-
-/* Randomized positions and delays for a natural look */
 .twinkle-dot:nth-child(1)  { left: 8%;   top: 16%; animation-delay: 0.1s;  transform: scale(0.9); }
 .twinkle-dot:nth-child(2)  { left: 18%;  top: 72%; animation-delay: 0.5s;  transform: scale(1.1); }
 .twinkle-dot:nth-child(3)  { left: 28%;  top: 38%; animation-delay: 1.1s; }
@@ -99,8 +91,6 @@ st.markdown("""
 
 main, section, .block-container { position: relative; z-index: 1; }
 </style>
-
-<!-- Lightweight 12-point twinkle layer -->
 <div class="twinkle-layer">
   <span class="twinkle-dot"></span><span class="twinkle-dot"></span><span class="twinkle-dot"></span>
   <span class="twinkle-dot"></span><span class="twinkle-dot"></span><span class="twinkle-dot"></span>
@@ -109,26 +99,57 @@ main, section, .block-container { position: relative; z-index: 1; }
 </div>
 """, unsafe_allow_html=True)
 
-
-# ---------- Banner ----------
+# ---------- Banner (once) ----------
 banner_path = find_asset("assets/banner.webp", "assets/banner.png", "assets/banner.jpg")
 if banner_path:
     st.image(str(banner_path), caption="A Garden in Time • Endless Summer", use_container_width=True)
 else:
     st.warning("Banner image not found. Place one at `assets/banner.webp|png|jpg`.")
-
 
 # ---------- Title ----------
 st.title("A Garden in Time: Our Endless Summer")
 st.markdown("<p class='subtitle'>A digital garden of memory, growth, and light.</p>", unsafe_allow_html=True)
 
-# ---------- Banner ----------
-banner_path = find_asset("assets/banner.webp", "assets/banner.png", "assets/banner.jpg")
-if banner_path:
-    st.image(str(banner_path), caption="A Garden in Time • Endless Summer", use_container_width=True)
-else:
-    st.warning("Banner image not found. Place one at `assets/banner.webp|png|jpg`.")
+# ---------- Poetic Narrative (left) + Poster (right) ----------
+col_left, col_right = st.columns([7, 5], gap="large")
 
+with col_left:
+    st.markdown("""
+<div class="poetic-block" style="position: relative; z-index: 1;">
+In this digital garden, every bloom holds a memory.<br/>
+Some are tender and new, like the first light of spring;<br/>
+some carry the warmth of summer, glowing with laughter and song.<br/><br/>
+
+<b>A Garden in Time</b> is not just a website —<br/>
+it is a living archive of <i>Endless Summer</i>,<br/>
+where design, sound, and motion grow together like flowers in the same soil.<br/><br/>
+
+Each petal remembers a moment:<br/>
+the first debut, the trembling stage lights,<br/>
+the voices that met in the dark and learned to sing as one.<br/><br/>
+
+This garden was built for those who once stood under the same sky —<br/>
+for the dreamers, the believers,<br/>
+the ones who kept their hearts open even when the seasons changed.<br/><br/>
+
+Here, light and shadow coexist.<br/>
+Growth is not always gentle, yet it is always beautiful.<br/>
+Step inside, and you may find pieces of your own story<br/>
+rooted in the soil of time, still alive, still blooming.
+</div>
+""", unsafe_allow_html=True)
+
+with col_right:
+    poster_path = find_asset(
+        "assets/main_poster.webp",
+        "assets/main_poster.png",
+        "assets/poster.png",
+        "assets/poster.jpg"
+    )
+    if poster_path:
+        st.image(str(poster_path), caption="Project Poster", use_container_width=True)
+    else:
+        st.info("Poster not found. Add one at `assets/main_poster.webp|png|jpg`.")
 
 # ---------- Enter the Garden Button ----------
 st.markdown("<div class='enter-btn'>", unsafe_allow_html=True)
