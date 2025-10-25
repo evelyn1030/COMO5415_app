@@ -60,26 +60,28 @@ with day_tab:
     colL, colR = st.columns([7, 5], gap="large")
 
     with colL:
-        day_video = Path("assets/videos/fox_journey.mp4")
-        if day_video.exists():
-            st.video(load_bytes(day_video), format="video/mp4")
-        else:
-            st.info("Add the DAY video at: assets/videos/fox_journey.mp4")
+        # Use the GitHub LFS link instead of local file
+        st.video("https://media.githubusercontent.com/media/evelyn1030/COMO5415_app/main/assets/prologue/fox_journey.mp4")
 
     with colR:
         st.subheader("A Fox’s Endless Summer Journey")
         st.markdown("""
 **What you’ll see**  
-A sun-washed moment where a small fox takes its first brave steps in the hydrangea garden.
+A lone fox wanders through shifting light until it meets a blooming hydrangea —  
+a symbol of encounter, understanding, and shared growth.  
+Together they journey toward the mountain, where dreams and promises intertwine.
 
 **Why it matters**  
-Day represents *beginnings* — light, hope, and the courage to start.
+The story reflects the bond between fans and artists —  
+two worlds connected by empathy and hope, walking side by side toward the same summit.  
+It captures how light and companionship transform solitude into courage.
 
 **Design notes**  
-• Warm tone, airy pacing  
-• Soft grain + gentle motion  
-• Focus on *growth* and *connection*
+• Dreamlike palette blending sunrise warmth and pastel glow  
+• Gentle rhythm and emotional pacing echoing companionship  
+• Visual motifs of *growth, resonance,* and *spiritual connection*
         """)
+
 
 # ---------------- NIGHT ----------------
 with night_tab:
