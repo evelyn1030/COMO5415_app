@@ -32,7 +32,7 @@ if audio_path.exists():
     st.audio(str(audio_path), format="audio/mp3")
 else:
     st.warning(f"⚠️ Audio file not found: {audio_path}")
-)
+
 
 # Debut
 img_path = Path("assets/milestones/debut.jpg")
