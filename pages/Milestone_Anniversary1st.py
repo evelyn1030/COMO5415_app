@@ -53,9 +53,9 @@ does not need noise to be real. 💫
 # ---------- Audio ----------
 st.subheader("Audio Reflection")
 
-audio_path = Path("assets/audio/b3_anniversary.mp3")
+audio_path = Path("assets/audio/b3_encounter.mp3")
 if not audio_path.exists():
-    audio_path = Path("assets/audio/b3_anniversary.MP3")
+    audio_path = Path("assets/audio/b3_encounter.MP3")
 
 if audio_path.exists():
     st.audio(str(audio_path), format="audio/mp3")

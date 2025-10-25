@@ -51,9 +51,9 @@ In our *Garden in Time*, this transforming bloom whispers:
 # ---------- Audio ----------
 st.subheader("Audio Reflection")
 
-audio_path = Path("assets/audio/b5_dancingelephants.mp3")
+audio_path = Path("assets/audio/b5_vermilion.mp3")
 if not audio_path.exists():
-    audio_path = Path("assets/audio/b5_dancingelephants.MP3")
+    audio_path = Path("assets/audio/b5_vermilion.MP3")
 
 if audio_path.exists():
     st.audio(str(audio_path), format="audio/mp3")

@@ -48,9 +48,9 @@ will always find its way. 🌅
 # ---------- Audio ----------
 st.subheader("Audio Reflection")
 
-audio_path = Path("assets/audio/b4_springgala.mp3")
+audio_path = Path("assets/audio/b4_drunk.mp3")
 if not audio_path.exists():
-    audio_path = Path("assets/audio/b4_springgala.MP3")
+    audio_path = Path("assets/audio/b4_drunk.MP3")
 
 if audio_path.exists():
     st.audio(str(audio_path), format="audio/mp3")

@@ -54,9 +54,9 @@ they will always find their way back to the light. 🌥️
 # ---------- Audio ----------
 st.subheader("Audio Reflection")
 
-audio_path = Path("assets/audio/b6_gradualwarmth.mp3")
+audio_path = Path("assets/audio/b6_love1440.mp3")
 if not audio_path.exists():
-    audio_path = Path("assets/audio/b6_gradualwarmth.MP3")
+    audio_path = Path("assets/audio/b6_love1440.MP3")
 
 if audio_path.exists():
     st.audio(str(audio_path), format="audio/mp3")
