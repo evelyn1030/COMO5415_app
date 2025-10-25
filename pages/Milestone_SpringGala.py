@@ -20,10 +20,14 @@ uniting two generations of youth in a vibrant celebration of energy and hope.
 This bloom shines like the **lanterns of spring**, reminding us that growth also means being seen —  
 to bloom brightly and share light with others.
 
-Image to be replaced  
-Music to be added  
-Video to be added  
 """)
+
+
+# Audio
+st.subheader("Audio Reflection")
+audio_file = open("assets/audio/b4_drunk.mp3", "rb")
+st.audio(audio_file.read(), format="audio/mp3")
+
 
 img_path = Path("assets/milestones/springgala.jpg")
 if img_path.exists():

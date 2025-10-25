@@ -16,13 +16,12 @@ This milestone marks the official **formation and debut** of *Teens in Times*.
 
 ### 🌿 Garden Meaning
 This bloom is the very first seed in our *Garden in Time*, symbolizing a hopeful start.
-
-Image to be replaced
-
-Music to be added
-
-Video to be added
 """)
+
+# ---------- Audio ----------
+st.subheader("Audio Reflection")
+audio_file = open("assets/audio/b1_popcorn.mp3", "rb")
+st.audio(audio_file.read(), format="audio/mp3")
 
 # Debut
 img_path = Path("assets/milestones/debut.jpg")

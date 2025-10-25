@@ -20,16 +20,16 @@ carefully preparing the stage and delivering their performance with dedication a
 This is the **mature bloom** of the Endless Summer Garden — growing stronger despite challenges,  
 and radiating hope that the seasons of connection and music will continue.
 
-Image to be replaced
-
-Music to be added
-
-Video to be added
 """)
 
 from pathlib import Path
 from PIL import Image
 import streamlit as st
+
+# Audio
+st.subheader("Audio Reflection")
+audio_file = open("assets/audio/b3_encounter.mp3", "rb")
+st.audio(audio_file.read(), format="audio/mp3")
 
 img_path = Path("assets/milestones/anniversary1st.jpg")
 if img_path.exists():

@@ -19,10 +19,12 @@ It was both a reward and a renewal — a testament to perseverance and love.
 This bloom spreads across the horizon, celebrating connection between stage and audience —  
 a symbol of unity and shared emotion.
 
-Image to be replaced  
-Music to be added  
-Video to be added  
 """)
+
+# Audio
+st.subheader("Audio Reflection")
+audio_file = open("assets/audio/b6_love1440.mp3", "rb")
+st.audio(audio_file.read(), format="audio/mp3")
 
 img_path = Path("assets/milestones/haikou.jpg")
 if img_path.exists():

@@ -21,13 +21,12 @@ showing that music and performance can carry both beauty and social meaning.
 
 ### 🌿 Garden Meaning
 In the garden, this is the **fiery bloom of summer** — radiant, brave, and unafraid to stand tall for others.
-
-Image to be replaced
-
-Music to be added
-
-Video to be added
 """)
+
+# Audio
+st.subheader("Audio Reflection")
+audio_file = open("assets/audio/b2_gradualwarmth.mp3", "rb")
+st.audio(audio_file.read(), format="audio/mp3")
 
 # On Fire
 img_path = Path("assets/milestones/onfire.jpg")

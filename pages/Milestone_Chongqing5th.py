@@ -24,6 +24,11 @@ Music to be added
 Video to be added  
 """)
 
+# Audio
+st.subheader("Audio Reflection")
+audio_file = open("assets/audio/b7_goodbyesorrow.mp3", "rb")
+st.audio(audio_file.read(), format="audio/mp3")
+
 img_path = Path("assets/milestones/chongqing.jpg")
 if img_path.exists():
     image = Image.open(img_path)

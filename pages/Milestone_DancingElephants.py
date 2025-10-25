@@ -19,10 +19,13 @@ symbolizing their step into a new artistic and emotional maturity.
 In the garden, this is the **turning bloom** — elegant yet powerful,  
 reminding us that change is also a form of beauty.
 
-Image to be replaced  
-Music to be added  
-Video to be added  
 """)
+
+# Audio
+st.subheader("Audio Reflection")
+audio_file = open("assets/audio/b5_vermilion.mp3", "rb")
+st.audio(audio_file.read(), format="audio/mp3")
+
 
 img_path = Path("assets/milestones/dancingelephants.jpg")
 if img_path.exists():
