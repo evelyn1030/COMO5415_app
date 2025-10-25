@@ -2,20 +2,43 @@ import streamlit as st
 from pathlib import Path
 from PIL import Image
 
-
 st.set_page_config(page_title="Bloom 1 • Debut Day", page_icon="🌱", layout="wide")
 st.title("Bloom 1 • The First Bloom (Debut Day)")
 
 st.markdown("""
 ### 🌸 Symbolism
-The first hydrangea bloom in our Endless Summer Garden represents the **debut day**.  
-It is tender and fragile, yet full of promise — just like the beginning of a new journey.
+The first hydrangea bloom in our *Endless Summer Garden* marks the **debut day** —  
+a quiet beginning that would later blossom into a journey of light, growth, and connection.  
+It represents not only a start, but also a **promise**: seven young boys stepping onto the stage,  
+their dreams still tender yet burning with sincerity.  
+
+It was the moment when uncertainty met courage,  
+when a seed of belief began to take root — destined to bloom across time.  
+
+---
 
 ### 🎶 Event
-This milestone marks the official **formation and debut** of *Teens in Times*.  
+On **August 25, 2019**, *Teens in Times* officially formed.  
+Few people noticed that day, and the lights were dim —  
+but even in a small corner of the world, something extraordinary began.  
+They recorded, performed, and built everything from the ground up,  
+proving that even without spotlights, **passion can shine through the dark**.  
+
+Their debut was not just a stage moment; it was an act of **faith** —  
+a belief that genuine effort, unity, and youthful hope could one day move hearts.  
+
+---
 
 ### 🌿 Garden Meaning
-This bloom is the very first seed in our *Garden in Time*, symbolizing a hopeful start.
+This bloom is the very first seed in our *Garden in Time*,  
+symbolizing **hope, resilience, and the courage to begin**.  
+Every petal holds a story of perseverance,  
+and every melody echoes the shared heartbeat of the group and their fans.  
+
+For those who have followed them from the start,  
+this bloom will always represent the day we met —  
+the day our stories intertwined,  
+and we began to grow *together*. 🌱  
 """)
 
 # ---------- Audio ----------
@@ -33,8 +56,7 @@ if audio_path.exists():
 else:
     st.warning(f"⚠️ Audio file not found: {audio_path}")
 
-
-# Debut
+# ---------- Image ----------
 img_path = Path("assets/milestones/debut.jpg")
 if img_path.exists():
     image = Image.open(img_path)

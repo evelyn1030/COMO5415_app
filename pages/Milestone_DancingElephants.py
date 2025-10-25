@@ -2,51 +2,70 @@ import streamlit as st
 from pathlib import Path
 from PIL import Image
 
-st.set_page_config(page_title="Bloom 5 • The Age of Dancing Elephants", page_icon="🐘", layout="wide")
+st.set_page_config(page_title="Bloom 5 • The Age of Dancing Elephants", page_icon="🌾", layout="wide")
 st.title("Bloom 5 • The Transforming Bloom (The Age of Dancing Elephants)")
 
 st.markdown("""
-### 🌸 Symbolism
-This bloom stands for **transition and growth** —  
-a time when innocence transforms into self-awareness and strength.
+### 🌾 Symbolism
+The fifth bloom — *The Age of Dancing Elephants* — represents **transformation and self-realization**.  
+In Chinese culture, “舞象之年” marks the transition from youth to maturity,  
+when a young person learns to carry both strength and tenderness in equal measure.  
 
-### 🎶 Event
-The release of the **second album, “The Age of Dancing Elephants,”**  
-marked a turning point in *Teens in Times’* journey,  
-symbolizing their step into a new artistic and emotional maturity.
+This bloom is no longer soft or fiery — it is steady, grounded, and aware.  
+It stands for the moment when the boys of *Teens in Times* grew into young men,  
+ready to bear the weight of meaning, creation, and responsibility.  
 
-### 🌿 Garden Meaning
-In the garden, this is the **turning bloom** — elegant yet powerful,  
-reminding us that change is also a form of beauty.
+---
 
+### 🐘 Event
+During this stage, the group entered university life while balancing intense schedules.  
+They faced sleepless nights, long rehearsals, and quiet solitude behind campus walls.  
+It was a time of exhaustion and longing —  
+but also one that revealed their astonishing discipline and self-drive.  
+
+As the world debated their future, the boys kept walking,  
+turning confusion into conviction.  
+Their documentary *The Age of Dancing Elephants* captured this exact crossroad —  
+when the spotlight dimmed, yet their inner light began to glow from within.  
+
+It was no longer about fame.  
+It was about asking deeper questions:  
+**“Who are we becoming? What does it mean to grow, to create, to stay kind?”**  
+
+---
+
+### 🌱 Garden Meaning
+This bloom embodies **growth through reflection**.  
+It reminds us that every dream must pass through the stage of questioning —  
+that real strength is built not in applause, but in persistence.  
+
+Like the elephants of the earth, slow yet powerful,  
+*TNT* learned to move with patience and purpose.  
+Their journey became not just a story of idols,  
+but a story of **youth finding meaning** in their own way.  
+
+In our *Garden in Time*, this transforming bloom whispers:  
+> “To dance is not to escape the storm, but to learn to move within it.”  
 """)
 
-# Audio
-
+# ---------- Audio ----------
 st.subheader("Audio Reflection")
 
-audio_path = Path("assets/audio/b5_vermilion.mp3")
+audio_path = Path("assets/audio/b5_dancingelephants.mp3")
 if not audio_path.exists():
-    audio_path = Path("assets/audio/b5_vermilion.MP3")
+    audio_path = Path("assets/audio/b5_dancingelephants.MP3")
 
 if audio_path.exists():
     st.audio(str(audio_path), format="audio/mp3")
 else:
     st.warning(f"⚠️ Audio file not found: {audio_path}")
 
-
-
+# ---------- Image ----------
 img_path = Path("assets/milestones/dancingelephants.jpg")
 if img_path.exists():
     image = Image.open(img_path)
-    st.markdown("<div style='text-align:center;'>", unsafe_allow_html=True)
-    st.image(image, caption="The Age of Dancing Elephants", width=480)
+    st.markdown("<div style='text-align: center;'>", unsafe_allow_html=True)
+    st.image(image, caption="The Age of Dancing Elephants", width=500)
     st.markdown("</div>", unsafe_allow_html=True)
 else:
-    st.warning("Album image not found. Please place it at assets/milestones/dancingelephants.jpg")
-
-audio_path = Path("assets/audio/dancingelephants.mp3")
-if audio_path.exists():
-    st.audio(str(audio_path))
-else:
-    st.info("Add audio file at assets/audio/dancingelephants.mp3")
+    st.warning("Dancing Elephants image not found. Please place it at assets/milestones/dancingelephants.jpg")
