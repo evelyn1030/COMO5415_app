@@ -32,7 +32,6 @@ pages = {
         st.Page("pages/banner.py", title="Banner"),
         st.Page("pages/Poster.py", title="Poster"),
         st.Page("pages/Storyboard.py", title="Storyboard"),
-        st.Page("pages/2_Video.py", title="Animation"),
     ],
 }
 

@@ -17,30 +17,35 @@ st.header("Website Storyboard (Overall Web Design)")
 img_path = Path("assets/website_flowchart.png")
 if img_path.exists():
     image = Image.open(img_path)
-    st.image(image, caption="Website Flowchart", width="stretch")
+    st.image(image, caption="Website Structure Overview", use_column_width=True)
 else:
     st.warning("`assets/website_flowchart.png` not found. Please place it in the assets folder.")
 
 st.subheader("Framework")
 st.markdown("""
-**Header** – Project title *A Garden in Time: Endless Summer* + navigation menu.  
-**Sidebar** – Persistent Streamlit navigation with logo and page list.
+**Header** – Displays the project title *A Garden in Time: Endless Summer* and sets a calm, poetic tone for the entire site.  
+**Sidebar** – Provides persistent navigation, featuring the logo and clear page hierarchy: *Garden*, *Blooms*, and *Project Assets*.  
+Together, they create a consistent visual frame that makes the experience intuitive and immersive.
 """)
 
 st.subheader("Main Pages")
 st.markdown("""
 **Garden Overview (Homepage)**  
-- Logo, tagline, and concept introduction.  
+Introduces the concept and mood of the project — a poetic garden that grows through light and memory. Serves as the narrative entry point for visitors.  
 
-**Timeline (Seven Blooms)**  
-- Interactive poster with seven clickable flowers.  
+**Prologue • The Garden’s Day and Night**  
+Combines animation and video to express the emotional duality of *hope* and *reflection*.  
 
-**Bloom Pages (1–7)**  
-- Mini posters, short narratives, video & audio placeholders.  
+**Timeline • Seven Blooms**  
+An interactive timeline of the creative process, where seven symbolic blooms represent different stages of growth and collaboration.  
+
+**Blooms 1–7**  
+Each Bloom page presents a milestone with mini posters, short texts, and embedded media. The sequence mirrors emotional and creative progression.  
 
 **Project Assets**  
-- Banner, Poster, Animation – key visuals tying the project together.
+Archives key visual materials — *Banner*, *Poster*, and *Storyboard* — connecting the narrative world to its design and production foundation.
 """)
+
 
 # ---------- Animation Storyboard ----------
 st.header("Animated Storyboard • The Fox’s Endless Summer Journey")
