@@ -22,9 +22,18 @@ reminding us that change is also a form of beauty.
 """)
 
 # Audio
+
 st.subheader("Audio Reflection")
-audio_file = open("assets/audio/b5_vermilion.mp3", "rb")
-st.audio(audio_file.read(), format="audio/mp3")
+
+audio_path = Path("assets/audio/b5_vermilion.mp3")
+if not audio_path.exists():
+    audio_path = Path("assets/audio/b5_vermilion.MP3")
+
+if audio_path.exists():
+    st.audio(str(audio_path), format="audio/mp3")
+else:
+    st.warning(f"⚠️ Audio file not found: {audio_path}")
+
 
 
 img_path = Path("assets/milestones/dancingelephants.jpg")

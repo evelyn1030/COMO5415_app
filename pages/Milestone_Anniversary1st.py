@@ -1,6 +1,7 @@
-import streamlit as st
+
 from pathlib import Path
 from PIL import Image
+import streamlit as st
 
 
 st.set_page_config(page_title="Bloom 3 • 1st Anniversary", page_icon="🎉", layout="wide")
@@ -22,14 +23,22 @@ and radiating hope that the seasons of connection and music will continue.
 
 """)
 
-from pathlib import Path
-from PIL import Image
-import streamlit as st
 
-# Audio
+
 st.subheader("Audio Reflection")
-audio_file = open("assets/audio/b3_encounter.mp3", "rb")
-st.audio(audio_file.read(), format="audio/mp3")
+
+audio_path = Path("assets/audio/b3_encounter.mp3")
+if not audio_path.exists():
+    audio_path = Path("assets/audio/b3_encounter.MP3")
+
+if audio_path.exists():
+    st.audio(str(audio_path), format="audio/mp3")
+else:
+    st.warning(f"⚠️ Audio file not found: {audio_path}")
+
+
+
+
 
 img_path = Path("assets/milestones/anniversary1st.jpg")
 if img_path.exists():

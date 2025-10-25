@@ -24,9 +24,19 @@ In the garden, this is the **fiery bloom of summer** — radiant, brave, and una
 """)
 
 # Audio
+
+
 st.subheader("Audio Reflection")
-audio_file = open("assets/audio/b2_gradualwarmth.mp3", "rb")
-st.audio(audio_file.read(), format="audio/mp3")
+
+audio_path = Path("assets/audio/b2_gradualwarmth.mp3")
+if not audio_path.exists():
+    audio_path = Path("assets/audio/b2_gradualwarmth.MP3")
+
+if audio_path.exists():
+    st.audio(str(audio_path), format="audio/mp3")
+else:
+    st.warning(f"⚠️ Audio file not found: {audio_path}")
+
 
 # On Fire
 img_path = Path("assets/milestones/onfire.jpg")
