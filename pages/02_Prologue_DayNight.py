@@ -95,16 +95,22 @@ with night_tab:
             st.info("Add the NIGHT video at: assets/prologue/chinese_men_1925_2025.mp4")
 
     with colR:
-        st.subheader("Chinese Men: A Century in Style (1925–2025)")
+        st.subheader("Chinese People: A Century in Motion (1925–2025)")
         st.markdown("""
-**What you’ll see**  
-A calm, archival-style montage tracing silhouettes, fabric, and posture across a century.
+    **What you’ll see**  
+    A century in motion — from linen robes to streetwear,  
+    from silent portraits to confident stances.  
+    Set to a remix of the Yunnan folk song *Mi Du Shan Ge*,  
+    this fast-cut montage transforms tradition into pulse and rhythm.
 
-**Why it matters**  
-Night symbolizes *reflection* — heritage, quiet strength, and roots that deepen.
+    **Why it matters**  
+    Night stands for *reflection* — not stillness, but awakening.  
+    The film captures how Chinese people have carried heritage into modern life,  
+    reframing identity through movement, music, and style.
 
-**Design notes**  
-• Grounded tone, steady rhythm  
-• Subtle texture overlays  
-• Emphasis on *continuity* and *dignity*
+    **Design notes**  
+    • Dynamic pacing synced with rhythmic beats  
+    • Visual layering of past and present textures  
+    • Focus on *heritage, vitality,* and *cultural rebirth*
         """)
+
