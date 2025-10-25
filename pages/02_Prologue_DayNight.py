@@ -97,7 +97,7 @@ with night_tab:
     with colR:
         st.subheader("Chinese People: A Century in Motion (1925–2025)")
         st.markdown("""
-    **What you’ll se2**  
+    **What you’ll see**  
     A century in motion — from linen robes to streetwear,  
     from silent portraits to confident stances.  
     Set to a remix of the Yunnan folk song *Mi Du Shan Ge*,  
