@@ -5,6 +5,20 @@ from PIL import Image
 st.set_page_config(page_title="Bloom 5 • The Age of Dancing Elephants", page_icon="🌾", layout="wide")
 st.title("Bloom 5 • The Transforming Bloom (The Age of Dancing Elephants)")
 
+# ---------- Audio ----------
+st.subheader("Audio Reflection")
+
+audio_path = Path("assets/audio/b5_vermilion.mp3")
+if not audio_path.exists():
+    audio_path = Path("assets/audio/b5_vermilion.MP3")
+
+if audio_path.exists():
+    st.audio(str(audio_path), format="audio/mp3")
+else:
+    st.warning(f"⚠️ Audio file not found: {audio_path}")
+
+
+
 st.markdown("""
 ### 🌾 Symbolism
 The fifth bloom — *The Age of Dancing Elephants* — represents **transformation and self-realization**.  
@@ -48,17 +62,6 @@ In our *Garden in Time*, this transforming bloom whispers:
 > “To dance is not to escape the storm, but to learn to move within it.”  
 """)
 
-# ---------- Audio ----------
-st.subheader("Audio Reflection")
-
-audio_path = Path("assets/audio/b5_vermilion.mp3")
-if not audio_path.exists():
-    audio_path = Path("assets/audio/b5_vermilion.MP3")
-
-if audio_path.exists():
-    st.audio(str(audio_path), format="audio/mp3")
-else:
-    st.warning(f"⚠️ Audio file not found: {audio_path}")
 
 # ---------- Image ----------
 img_path = Path("assets/milestones/dancingelephants.jpg")

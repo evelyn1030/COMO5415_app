@@ -5,6 +5,19 @@ from PIL import Image
 st.set_page_config(page_title="Bloom 6 • The Gentle Return (Haikou Concert)", page_icon="🌊", layout="wide")
 st.title("Bloom 6 • The Gentle Return (Haikou Concert)")
 
+# ---------- Audio ----------
+st.subheader("Audio Reflection")
+
+audio_path = Path("assets/audio/b6_love1440.mp3")
+if not audio_path.exists():
+    audio_path = Path("assets/audio/b6_love1440.MP3")
+
+if audio_path.exists():
+    st.audio(str(audio_path), format="audio/mp3")
+else:
+    st.warning(f"⚠️ Audio file not found: {audio_path}")
+
+
 st.markdown("""
 ### 🌊 Symbolism
 The sixth bloom unfolds beneath the Haikou sky —  
@@ -51,17 +64,7 @@ a promise that no matter how far one drifts,
 they will always find their way back to the light. 🌥️  
 """)
 
-# ---------- Audio ----------
-st.subheader("Audio Reflection")
 
-audio_path = Path("assets/audio/b6_love1440.mp3")
-if not audio_path.exists():
-    audio_path = Path("assets/audio/b6_love1440.MP3")
-
-if audio_path.exists():
-    st.audio(str(audio_path), format="audio/mp3")
-else:
-    st.warning(f"⚠️ Audio file not found: {audio_path}")
 
 # ---------- Image ----------
 img_path = Path("assets/milestones/haikou.jpg")

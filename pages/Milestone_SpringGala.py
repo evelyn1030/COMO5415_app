@@ -5,6 +5,19 @@ from PIL import Image
 st.set_page_config(page_title="Bloom 4 • Spring Festival Gala", page_icon="✨", layout="wide")
 st.title("Bloom 4 • The Radiant Bloom (Spring Festival Gala)")
 
+# ---------- Audio ----------
+st.subheader("Audio Reflection")
+
+audio_path = Path("assets/audio/b4_drunk.mp3")
+if not audio_path.exists():
+    audio_path = Path("assets/audio/b4_drunk.MP3")
+
+if audio_path.exists():
+    st.audio(str(audio_path), format="audio/mp3")
+else:
+    st.warning(f"⚠️ Audio file not found: {audio_path}")
+
+
 st.markdown("""
 ### ✨ Symbolism
 The fourth bloom bursts open like a sunrise — dazzling, confident, and full of vitality.  
@@ -45,17 +58,7 @@ proof that light, when born from sincerity,
 will always find its way. 🌅  
 """)
 
-# ---------- Audio ----------
-st.subheader("Audio Reflection")
 
-audio_path = Path("assets/audio/b4_drunk.mp3")
-if not audio_path.exists():
-    audio_path = Path("assets/audio/b4_drunk.MP3")
-
-if audio_path.exists():
-    st.audio(str(audio_path), format="audio/mp3")
-else:
-    st.warning(f"⚠️ Audio file not found: {audio_path}")
 
 # ---------- Image ----------
 img_path = Path("assets/milestones/springgala.jpg")

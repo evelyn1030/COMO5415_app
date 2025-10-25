@@ -5,6 +5,19 @@ from PIL import Image
 st.set_page_config(page_title="Bloom 3 • 1st Anniversary", page_icon="🌼", layout="wide")
 st.title("Bloom 3 • The Mature Bloom (1st Anniversary)")
 
+# ---------- Audio ----------
+st.subheader("Audio Reflection")
+
+audio_path = Path("assets/audio/b3_encounter.mp3")
+if not audio_path.exists():
+    audio_path = Path("assets/audio/b3_encounter.MP3")
+
+if audio_path.exists():
+    st.audio(str(audio_path), format="audio/mp3")
+else:
+    st.warning(f"⚠️ Audio file not found: {audio_path}")
+
+
 st.markdown("""
 ### 🌼 Symbolism
 The third bloom in our *Endless Summer Garden* represents **growth and reflection** —  
@@ -50,17 +63,7 @@ when they stood on a quiet stage and proved that light
 does not need noise to be real. 💫  
 """)
 
-# ---------- Audio ----------
-st.subheader("Audio Reflection")
 
-audio_path = Path("assets/audio/b3_encounter.mp3")
-if not audio_path.exists():
-    audio_path = Path("assets/audio/b3_encounter.MP3")
-
-if audio_path.exists():
-    st.audio(str(audio_path), format="audio/mp3")
-else:
-    st.warning(f"⚠️ Audio file not found: {audio_path}")
 
 # ---------- Image ----------
 img_path = Path("assets/milestones/anniversary.jpg")

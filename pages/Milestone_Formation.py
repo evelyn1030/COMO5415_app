@@ -5,6 +5,22 @@ from PIL import Image
 st.set_page_config(page_title="Bloom 1 • Debut Day", page_icon="🌱", layout="wide")
 st.title("Bloom 1 • The First Bloom (Debut Day)")
 
+# ---------- Audio ----------
+from pathlib import Path
+import streamlit as st
+
+st.subheader("Audio Reflection")
+
+audio_path = Path("assets/audio/b1_popcorn.mp3")
+if not audio_path.exists():
+    audio_path = Path("assets/audio/b1_popcorn.MP3")
+
+if audio_path.exists():
+    st.audio(str(audio_path), format="audio/mp3")
+else:
+    st.warning(f"⚠️ Audio file not found: {audio_path}")
+
+
 st.markdown("""
 ### 🌸 Symbolism
 The first hydrangea bloom in our *Endless Summer Garden* marks the **debut day** —  
@@ -41,20 +57,7 @@ the day our stories intertwined,
 and we began to grow *together*. 🌱  
 """)
 
-# ---------- Audio ----------
-from pathlib import Path
-import streamlit as st
 
-st.subheader("Audio Reflection")
-
-audio_path = Path("assets/audio/b1_popcorn.mp3")
-if not audio_path.exists():
-    audio_path = Path("assets/audio/b1_popcorn.MP3")
-
-if audio_path.exists():
-    st.audio(str(audio_path), format="audio/mp3")
-else:
-    st.warning(f"⚠️ Audio file not found: {audio_path}")
 
 # ---------- Image ----------
 img_path = Path("assets/milestones/debut.jpg")

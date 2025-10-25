@@ -5,6 +5,17 @@ from PIL import Image
 st.set_page_config(page_title="Bloom 7 • The Golden Bloom (5th Anniversary in Chongqing)", page_icon="🏙️", layout="wide")
 st.title("Bloom 7 • The Golden Bloom (5th Anniversary in Chongqing)")
 
+# ---------- Audio ----------
+st.subheader("Audio Reflection")
+
+audio_path = Path("assets/audio/b7_goodbyesorrow.mp3")
+if not audio_path.exists():
+    audio_path = Path("assets/audio/b7_goodbyesorrow.MP3")
+
+if audio_path.exists():
+    st.audio(str(audio_path), format="audio/mp3")
+else:
+    st.warning(f"⚠️ Audio file not found: {audio_path}")
 st.markdown("""
 ### 🏙️ Symbolism
 The seventh and final bloom glows in **Chongqing** —  
@@ -66,17 +77,7 @@ It whispers to everyone who has walked with them:
 > we will always return to where the light first found us.” 🌄  
 """)
 
-# ---------- Audio ----------
-st.subheader("Audio Reflection")
 
-audio_path = Path("assets/audio/b7_goodbyesorrow.mp3")
-if not audio_path.exists():
-    audio_path = Path("assets/audio/b7_goodbyesorrow.MP3")
-
-if audio_path.exists():
-    st.audio(str(audio_path), format="audio/mp3")
-else:
-    st.warning(f"⚠️ Audio file not found: {audio_path}")
 
 # ---------- Image ----------
 img_path = Path("assets/milestones/chongqing5.jpg")
