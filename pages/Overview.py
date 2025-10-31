@@ -117,5 +117,5 @@ with col_right:
 # ---------- Enter the Garden Button ----------
 st.markdown("<div class='enter-btn'>", unsafe_allow_html=True)
 if st.button("🌸 Enter the Garden →", type="primary", width="stretch"):
-    st.switch_page("pages/T02_Prologue_DayNight.py")
+    st.switch_page("pages/02_Prologue_DayNight.py")
 st.markdown("</div>", unsafe_allow_html=True)
