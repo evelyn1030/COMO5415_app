@@ -65,7 +65,7 @@ def find_asset(*names: str) -> Path | None:
 # ---------- Banner ----------
 banner_path = find_asset("assets/banner.webp", "assets/banner.png", "assets/banner.jpg")
 if banner_path:
-    st.image(str(banner_path), caption="A Garden in Time • Endless Summer", width="stretch")
+    st.image(str(banner_path), caption="A Garden in Time • Endless Summer", use_container_width=True)
 else:
     st.warning("Banner image not found. Place one at `assets/banner.webp|png|jpg`.")
 
@@ -110,12 +110,18 @@ with col_right:
         "assets/poster.jpg"
     )
     if poster_path:
-        st.image(str(poster_path), caption="Project Poster", width="stretch")
+        st.image(str(poster_path), caption="Project Poster", use_container_width=True)
     else:
         st.info("Poster not found. Add one at `assets/main_poster.webp|png|jpg`.")
 
+
 # ---------- Enter the Garden Button ----------
 st.markdown("<div class='enter-btn'>", unsafe_allow_html=True)
-if st.button("🌸 Enter the Garden →", type="primary", width="stretch"):
-    st.switch_page("pages/02_Prologue_DayNight.py")
+
+st.page_link(
+    "pages/02_Prologue_DayNight.py",
+    label="🌸 Enter the Garden →",
+    use_container_width=True
+)
+
 st.markdown("</div>", unsafe_allow_html=True)
