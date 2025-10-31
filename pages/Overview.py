@@ -115,7 +115,7 @@ with col_right:
         st.info("Poster not found. Add one at `assets/main_poster.webp|png|jpg`.")
 
 
-# ---------- Enter the Garden Button ----------
+# ---------- Enter the Garden---------
 st.markdown("<div class='enter-btn'>", unsafe_allow_html=True)
 
 if st.button("🌸 Enter the Garden →", type="primary", use_container_width=True):
