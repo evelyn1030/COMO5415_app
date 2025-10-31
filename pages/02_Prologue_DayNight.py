@@ -105,8 +105,10 @@ with night_tab:
 
     **Why it matters**  
     Night stands for *reflection* — not stillness, but awakening.  
-    The film captures how Chinese people have carried heritage into modern life,  
-    reframing identity through movement, music, and style.
+    Through rhythm and motion, this film mirrors the spirit of TNT —
+    a new generation that inherits the echoes of the past while shaping the sound of today.
+    Their journey embodies how Chinese youth carry tradition forward,
+    transforming heritage into light, energy, and limitless possibility.
 
     **Design notes**  
     • Dynamic pacing synced with rhythmic beats  
