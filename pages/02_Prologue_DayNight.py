@@ -95,7 +95,7 @@ with night_tab:
             st.info("Add the NIGHT video at: assets/prologue/chinese_men_1925_2025.mp4")
 
     with colR:
-        st.subheader("Chinese People: A Century in Motion (1925–2025)")
+        st.subheader("Chinese Men: A Century in Style (1925–2025)")
         st.markdown("""
     **What you’ll see**  
     A century in motion — from robes to streetwear,  
